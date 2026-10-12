@@ -93,3 +93,47 @@ h1{font-size:52px;font-weight:750;letter-spacing:-.06em}h1 span{display:block;fo
 #publications a .external-arrow {color:currentColor;white-space:nowrap}
 .publication-fellowship {margin-top:12px;font-size:14px;line-height:1.75;color:var(--muted);word-break:normal}
 .publication-fellowship strong {font-weight:600;color:var(--ink)}
+
+/* Research labels and single-line summaries scale to their available width. */
+@media screen {
+  .hero,.hero-copy,.research-copy {container-type:inline-size;min-width:0}
+  .hero-focus {font-size:clamp(12px,4.3cqi,23px);white-space:nowrap}
+  .research-copy .topic {font-size:24px;font-weight:750;letter-spacing:-.025em;line-height:1.4;color:var(--accent);margin-bottom:12px}
+  .research-copy h3,.synthesis .research-copy h3 {font-size:clamp(13px,5.1cqi,23px);white-space:nowrap}
+}
+@media screen and (max-width:900px) {
+  .research-item {grid-template-columns:minmax(0,1fr);gap:24px}
+  .nav-wrap {flex-wrap:wrap;gap:12px 24px}
+}
+@media screen and (max-width:680px) {
+  .profile {grid-row:1/3}
+  .hero-focus {grid-column:1/-1;grid-row:3}
+  .research-copy .topic {font-size:22px}
+  nav {gap:6px 14px}
+}
+
+/* Experience: dates remain separate from concise activity descriptions. */
+.activity-row {display:grid;grid-template-columns:172px minmax(0,1fr);gap:32px;padding:30px 0;border-top:1px solid var(--line)}
+.activity-row:last-child {padding-bottom:0}
+.activity-period {display:flex;gap:6px;align-items:baseline;font-size:14px;font-weight:650;color:var(--accent);white-space:nowrap;padding-top:4px}
+.activity-copy {min-width:0}
+.activity-copy h3 {font-size:22px;font-weight:650;letter-spacing:-.025em;line-height:1.45;word-break:normal}
+.activity-role {font-size:14px;font-weight:650;color:var(--accent);margin-top:6px}
+.activity-organization {font-size:14px;line-height:1.75;color:var(--muted);margin-top:9px;word-break:normal}
+.activity-highlights {margin:16px 0 0;padding-left:20px;color:#4e6263;font-size:16px;line-height:1.85}
+.activity-highlights li+li {margin-top:7px}
+.activity-highlights li::marker {color:#7b9d94}
+.activity-news {display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:#1558ad;font-size:15px;font-weight:650;text-decoration:underline;text-underline-offset:4px}
+.activity-news:visited {color:#60479a}
+.activity-news:hover,.activity-news:focus-visible {color:#0d4185;text-decoration-thickness:2px}
+@media (max-width:680px) {
+  .activity-row {grid-template-columns:minmax(0,1fr);gap:11px;padding:25px 0}
+  .activity-period {padding:0}
+  .activity-copy h3 {font-size:21px}
+}
+@media print {
+  .activity-row {grid-template-columns:105px minmax(0,1fr);gap:20px;padding:20px 0;break-inside:avoid}
+  .activity-copy h3 {font-size:17px}
+  .activity-highlights {font-size:11px}
+  .activity-period,.activity-role,.activity-organization,.activity-news {font-size:10px}
+}
